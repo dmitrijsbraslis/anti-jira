@@ -33,6 +33,7 @@ public class WebSecurityConfig {
         return provider;
     }
 
+    //comment added
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize
