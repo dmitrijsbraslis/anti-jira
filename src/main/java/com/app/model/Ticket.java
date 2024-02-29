@@ -1,13 +1,12 @@
 package com.app.model;
 
 public class Ticket {
-    //-----------ATTRIBUTES------------------
     private long id;
     private String summary;
     private String description;
-    private int likesCount;
+    private long reporterId;
+    private long projectId;
 
-    //----------GETTERS/SETTERS--------------
     public long getId() {
         return id;
     }
@@ -32,11 +31,19 @@ public class Ticket {
         this.description = description;
     }
 
-    public int getLikesCount() {
-        return likesCount;
+    public long getReporterId() {
+        return reporterId;
     }
 
-    public void setLikesCount(int likesCount) {
-        this.likesCount = likesCount;
+    public void setReporterId(long reporterId) {
+        this.reporterId = reporterId;
+    }
+
+    public long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(long projectId) {
+        this.projectId = projectId;
     }
 }
