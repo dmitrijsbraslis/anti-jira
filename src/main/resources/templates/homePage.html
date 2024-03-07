@@ -6,8 +6,9 @@
     </head>
     <body>
         <div th:each="project : ${projects}">
-            <div th:text="${project.name}"></div>
+            <div><a th:href="'/project/' + ${project.id}" th:text="${project.name}"></a></div>
         </div>
         <div><a href="/new-project">Create Project</a></div>
+        <div><a href="/new-ticket">Create Ticket</a></div>
     </body>
 </html>
