@@ -31,4 +31,8 @@ public class TicketServices {
     public List<Ticket> getTicketsByProject(long projectId) {
         return ticketsDAO.getTicketsByProject(projectId);
     }
+
+    public List<Ticket> getLastTickets(int count) {
+        return ticketsDAO.getLastTickets(count);
+    }
 }
