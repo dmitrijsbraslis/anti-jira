@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 @Service
 public class FileServices {
@@ -24,5 +25,9 @@ public class FileServices {
 
         Files.copy(file.getInputStream(), destinationFile, StandardCopyOption.REPLACE_EXISTING);
         fileDAO.storeNewFile(file.getOriginalFilename());
+    }
+
+    public List<String> getAllFiles() {
+        return fileDAO.getAllFiles();
     }
 }
