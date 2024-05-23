@@ -5,6 +5,8 @@
     <title>All Files</title>
 </head>
 <body>
-
+    <div th:each="file : ${files}">
+        <img th:src="'/files/' + ${file}" height="250">
+    </div>
 </body>
 </html>

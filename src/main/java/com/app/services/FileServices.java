@@ -1,6 +1,7 @@
 package com.app.services;
 
 import com.app.dao.FileDAO;
+import com.app.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,17 +18,29 @@ public class FileServices {
     @Autowired
     private FileDAO fileDAO;
 
+    @Autowired
+    private UserDAO userDAO;
+
     private final Path LOCATION = Paths.get("src/main/resources/static/files");
 
     public void storeNewFile(MultipartFile file) throws IOException {
-        Path destinationFile = LOCATION.resolve(Paths.get(file.getOriginalFilename()))
-                        .normalize().toAbsolutePath();
-
-        Files.copy(file.getInputStream(), destinationFile, StandardCopyOption.REPLACE_EXISTING);
+        copyFileToDirectory(file);
         fileDAO.storeNewFile(file.getOriginalFilename());
+    }
+
+    public void storeUserAvatar(MultipartFile file) throws IOException {
+        copyFileToDirectory(file);
+        //TODO
     }
 
     public List<String> getAllFiles() {
         return fileDAO.getAllFiles();
+    }
+
+    private void copyFileToDirectory(MultipartFile file) throws IOException {
+        Path destinationFile = LOCATION.resolve(Paths.get(file.getOriginalFilename()))
+                .normalize().toAbsolutePath();
+
+        Files.copy(file.getInputStream(), destinationFile, StandardCopyOption.REPLACE_EXISTING);
     }
 }
