@@ -28,8 +28,8 @@ public class FileController {
     }
 
     @PostMapping("/avatar-upload")
-    public String storeUserAvatar(@RequestParam("avatar") MultipartFile avatar) {
-
+    public String storeUserAvatar(@RequestParam("avatar") MultipartFile avatar) throws IOException {
+        fileServices.storeUserAvatar(avatar);
         return "redirect:/";
     }
 
