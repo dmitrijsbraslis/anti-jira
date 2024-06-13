@@ -17,6 +17,10 @@
             <div class="right-content-block">
                 <div class="user-header">
                     <div class="user-card">
+                        <div class="bookmarks">
+                            <div><img src="/img/bookmark.png" class="bookmarks-counter-ico"></div>
+                            <div class="bookmarks-counter">0</div>
+                        </div>
                         <div th:if="${avatarUrl == null}" class="avatar" th:text="${#strings.substring(username, 0, 1)}" onclick="openModal();"></div>
                         <div th:if="${avatarUrl != null}" class="avatar" onclick="openModal();">
                             <img th:src="'/files/' + ${avatarUrl}" class="avatar-img">
@@ -30,11 +34,13 @@
                 </div>
                 <div class="right-content">
                     <div class="tickets-header">
+                        <div class="bookmark-header"></div>
                         <div class="tickets-id header">ID</div>
                         <div class="tickets-summary header">Summary</div>
                         <div class="tickets-reporter header">Reporter</div>
                     </div>
                     <div th:each="ticket : ${tickets}" class="ticket">
+                        <div><img src="/img/bookmark.png" class="bookmark-ico"></div>
                         <div th:text="${ticket.id}" class="tickets-id"></div>
                         <a th:href="'/ticket/' + ${ticket.id}">
                             <div th:text="${ticket.summary}" class="tickets-summary"></div>
