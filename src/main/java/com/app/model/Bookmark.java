@@ -4,6 +4,7 @@ public class Bookmark {
     private long id;
     private long ticketId;
     private long userId;
+    private Ticket ticket;
 
     public long getId() {
         return id;
@@ -27,5 +28,13 @@ public class Bookmark {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

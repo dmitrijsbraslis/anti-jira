@@ -5,7 +5,7 @@ public class Ticket {
     private String summary;
     private String description;
 //    private long reporterId;
-    private User user;
+    private User user; //reporter
     private long projectId;
 
     public long getId() {

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Anti JIRA</title>
+    <link th:href="@{/css/reset.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script th:src="@{/js/main.js}"></script>
+</head>
+    <body>
+    <div class="content">
+        <div th:replace="fragments/side-menu :: 'side-menu'"></div>
+        <div class="right-content-block">
+            <div th:replace="fragments/header :: 'user-header'"></div>
+            <div class="right-header">
+                <div class="button-block"><a href="/new-project" class="link-button">Create Project</a></div>
+                <div class="button-block"><a href="/new-ticket" class="link-button">Create Ticket</a></div>
+            </div>
+            <div class="right-content">
+
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/header :: 'avatar-modal'"></div>
+    <script>getBookmarksCount();</script>
+</body>
+</html>
